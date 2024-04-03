@@ -1,0 +1,6 @@
+venv
+git-github.ods
+.~lock.git-github.ods#
+static
+venv
+db.sqlite3
