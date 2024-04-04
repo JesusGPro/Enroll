@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>My Work Site Records - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
+    <link rel="stylesheet" 
+          href="{% static 'login/looklike.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar" aria-label="main navigation">
+        <div class="navbar-brand">
+          <span class="navbar-item">
+            <a class="button is-dark" href="{% url 'index' %}">Home</a>
+          </span>
+          <span class="navbar-item">
+            <a class="button is-success" href="{% url 'login' %}">Log in</a>
+          </span>
+          <span class="navbar-item">
+            <a class="button is-primary" href="{% url 'signup' %}">Signup</a>
+          </span>
+          <span class="navbar-item">
+            <a class="button is-warning" href="{% url 'logout' %}">Log out</a>
+          </span>
+          {% if request.user.is_authenticated %}
+          <span class="navbar-item">
+            <a class="button is-link" href="{% url 'home' %}">Get back Work register</a>
+          </span>
+          {% else %}
+          <p></p>
+          {% endif %}
+        </div>
+      </nav>
+    </header>
+    <div class="container" style="padding: 25px 50px;">
+      <h1 style="font-size: 36px;">Worker Register</h1>
+    <div>
+    
+
+    {% block content %}{% endblock %}
+    <footer class="footer">
+      <small>&copy; 2024, Jesus Maria Garcia Pro</small>
+    </footer>
+  </body>
+</html>

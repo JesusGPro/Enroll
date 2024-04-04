@@ -1,0 +1,14 @@
+{% extends "login/layout.html" %}
+{% block title %}Sign up!{% endblock %}
+{% block content %}     
+
+<h1 style="font-size: 25px;">Signup</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button is-info" type="submit">Signup</button>
+    <p style="color: blue;">If you already have account log in</a>
+</form>
+
+{% endblock %}
+

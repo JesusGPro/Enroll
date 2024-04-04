@@ -9,6 +9,7 @@ def home(request):
     students = User.objects.all()
     context = {'form': form, 'students': students}
     return render(request, 'enroll/home.html', context)
+    
 
 # @csrf_exempt
 def save_data(request):
@@ -65,3 +66,8 @@ def edit_data(request):
             'password': student.password
         }
         return JsonResponse(student_data)
+    
+    # The first parameter in the JsonResponse class is data that accepts an instance of dict.
+    # If we pass data that isn't a dictionary, then we have to set the safe parameter to False.
+    # Then might be any JSON-serializable object.
+    # return JsonResponse(data, safe=False)

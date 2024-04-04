@@ -1,11 +1,12 @@
+{% extends "login/layout.html" %}
+{% block title %}Workers{% endblock %}
+{% block content %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<head>   
     <link rel="stylesheet" href="{% static 'enroll/css/bootstrap.css' %}" />
-    <title>Django Ajax CRUD</title>
 </head>
 <body>
     <div class="container mt-5">
@@ -15,7 +16,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <h4 class="text-center alert alert-info">
-                    Add/Update Student
+                    Add/Update Worker
                 </h4>
                 <form action="" method="post">
                     {% csrf_token %} 
@@ -28,7 +29,7 @@
             </div>
             <div class="col-sm-7">
                 <h2 class="text-center alert alert-info">
-                    Student Information
+                    Worker Information
                 </h2>
                 <table class="table table-hover">
                     <thead>
@@ -67,8 +68,8 @@
 
     <script src="{% static 'enroll/js/jquery.js' %}"></script>
     <script src="{% static 'enroll/js/popper.js' %}"></script>
-    <script src="{% static 'enroll/js/bootstrap.js' %}"></script>
-
+    <script src="{% static 'enroll/js/bootstrap.js' %}"></script>  
     {% include "enroll/ajax.html" %}
 </body>
-</html>
+{% endblock %}
+
