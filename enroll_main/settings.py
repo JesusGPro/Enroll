@@ -114,3 +114,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#-------------------------------------SECURE SESSION MANAGEMENT--------------------------------------------------
+# from freeCodeCamp tutorial. Will require HTTPS
+# Tells Django to only send the session cookie over HTTPS, and not be sent over unencrypted HTTP connections.
+# When set to True, the session cookie will not be sent over unencrypted HTTP connections.
+SESSION_COOKIE_SECURE = True
+
+# Add an extra layer of security. The session cookie cannot be accessed by JavaScript code running on the client's
+# browser. This helps to mitigate certain types of cross-sit scripting (XSS) attacks, where the attacker tries to
+# steal session data using malicious scripts
+SESSION_COOKIE_HTTPONLY = True
+
+# The session will expire and be deleted once the user closes their web browser. It is useful for scenarios where 
+# you  want to ensure that users are logged out when they close their browser, enhancing security for shared or public
+# computers
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+#---------------------------------------SECURITY-----------------------------------------------------------------
+CSRF_COOKIE_SECURE = True  # Ensures secure CSRF cookie (requires HTTPS)
+CSRF_COOKIE_HTTPONLY = True  # Prevents JavaScript access to the CSRF cookie
+CSRF_COOKIE_SAMESITE = "Strict"  # Prevents CSRF cookie from being sent with cross-origin requests
+CSP_DEFAULT_SRC = ("'self'",)  # Only allow resources to be loaded from the same origin
